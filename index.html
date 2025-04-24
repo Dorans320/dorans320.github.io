@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIcalculatorPro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            float: left;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .calculator {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AIcalculatorPro</h1>
+        <p>Your AI-Powered Calculator</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+
+    <div id="home" class="container">
+        <h2>Scientific Calculator</h2>
+        <div class="calculator">
+            <input type="text" id="display" disabled>
+            <div>
+                <button onclick="appendNumber(1)">1</button>
+                <button onclick="appendNumber(2)">2</button>
+                <button onclick="appendNumber(3)">3</button>
+                <button onclick="appendNumber('+')">+</button>
+            </div>
+            <div>
+                <button onclick="appendNumber(4)">4</button>
+                <button onclick="appendNumber(5)">5</button>
+                <button onclick="appendNumber(6)">6</button>
+                <button onclick="appendNumber('-')">-</button>
+            </div>
+            <div>
+                <button onclick="appendNumber(7)">7</button>
+                <button onclick="appendNumber(8)">8</button>
+                <button onclick="appendNumber(9)">9</button>
+                <button onclick="appendNumber('*')">*</button>
+            </div>
+            <div>
+                <button onclick="appendNumber(0)">0</button>
+                <button onclick="clearDisplay()">C</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="appendNumber('/')">/</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="container">
+        <h2>About Us</h2>
+        <p>AIcalculatorPro is a modern, AI-powered calculator designed to simplify complex calculations with advanced features.</p>
+    </div>
+
+    <div id="privacy" class="container">
+        <h2>Privacy Policy</h2>
+        <p>We value your privacy and are committed to protecting your personal information. This website does not collect personal data unless explicitly provided by the user.</p>
+    </div>
+
+    <div id="faq" class="container">
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>Q:</strong> What is AIcalculatorPro?</p>
+        <p><strong>A:</strong> It is an AI-powered scientific calculator designed to solve a wide range of mathematical problems.</p>
+        <p><strong>Q:</strong> How do I use the calculator?</p>
+        <p><strong>A:</strong> Simply input your numbers and operations, then press "=" to get the result.</p>
+    </div>
+
+    <div id="contact" class="container">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message"></textarea><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 AIcalculatorPro. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let display = document.getElementById('display');
+        
+        function appendNumber(number) {
+            display.value += number;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch (e) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
